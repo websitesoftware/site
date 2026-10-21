@@ -55,12 +55,14 @@ git push
 
 ## Deploy
 
-Any static host works: GitHub Pages (Settings > Pages > deploy from branch, root folder), Netlify, Vercel, Azure Static Web Apps, or IIS.
+This folder is published to https://www.websitesoft.co.uk/ through the public repository `websitesoftware/site` (GitHub Pages, `main` branch, root folder, `CNAME` = www.websitesoft.co.uk). Do not edit that repository by hand: from `concepts/blue` in the `www` repository run `python tools/build.py`, commit, then `python tools/deploy.py`. Procedure, smoke test, DNS and rollback: `docs/LIVE-SITE.md` in the `www` repository.
+
+Any other static host also works (Netlify, Cloudflare Pages, Azure Static Web Apps, IIS); the matching header files are included (`_headers`, `staticwebapp.config.json`, `web.config`).
 
 ## Notes
 
 - Fonts load from Google Fonts. Everything else is local.
-- The contact form has no backend yet. It needs a form handler (for example a .NET endpoint or a form service) before launch.
+- The contact forms send through FormSubmit (see Contact forms below); the first live submission needs a one-time activation.
 - Update the canonical and Open Graph URLs in `index.html` if the domain changes.
 - Photos are free Unsplash images; replace them with real team photos when available (same file names in `assets/img/`).
 
