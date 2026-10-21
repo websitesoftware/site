@@ -463,6 +463,7 @@ P.about = () => ({ t: 'About', h: `<div class="pg"><div class="wrap">${hero(crum
     ld.textContent = JSON.stringify(pageLd(page ? r : '', page));
   }
   function route() {
+    tabSeq = 0;
     if (PATH_MODE && location.hash.startsWith('#/')) { history.replaceState(null, '', toPath(location.hash)); }
     const h = curRoute();
     let page = null, key = '';
@@ -598,7 +599,7 @@ P.about = () => ({ t: 'About', h: `<div class="pg"><div class="wrap">${hero(crum
   // The home page is the only page with the 3D stage, so only the home page (and 404.html, which renders it) ships
   // three.min.js in its HTML. Pre-rendered sub-pages fetch it on demand when a visitor navigates home.
   let three = null, threeTried = false;
-  const ensureThree = () => (window.THREE ? Promise.resolve(true) : new Promise((res) => { const sc = document.createElement('script'); sc.src = 'assets/vendor/three.min.js'; sc.onload = () => res(!!window.THREE); sc.onerror = () => res(false); document.head.appendChild(sc); }));
+  const ensureThree = () => (window.THREE ? Promise.resolve(true) : new Promise((res) => { const sc = document.createElement('script'); const mv = document.querySelector('script[data-three-v]'); sc.src = 'assets/vendor/three.min.js' + (mv ? '?v=' + mv.dataset.threeV : ''); sc.onload = () => res(!!window.THREE); sc.onerror = () => res(false); document.head.appendChild(sc); }));
   const startStage = () => {
     if (three || threeTried || reduce || !$('#stage')) return; threeTried = true;
     ensureThree().then((ok) => { try { if (ok) three = buildStage(); } catch (e) { console.error(e); } if (!three) { const c = $('#stage'); if (c) c.remove(); } else dispatchEvent(new Event('resize')); });
