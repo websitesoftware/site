@@ -1,0 +1,28 @@
+# Uptime check every 15 minutes (GitHub schedules can drift by a few minutes). A failure emails the
+# repository owner and shows as a red run. An external monitor is still better; see docs/ROADMAP.md Phase 5.
+name: Uptime
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Key pages answer within 10 seconds
+        run: |
+          set -e
+          fail=0
+          for u in https://www.websitesoft.co.uk/ https://www.websitesoft.co.uk/contact/ https://www.websitesoft.co.uk/services/umbraco/ https://www.websitesoft.co.uk/sitemap.xml; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 --retry 2 --retry-delay 5 "$u" || echo 000)
+            echo "$code $u"
+            [ "$code" = "200" ] || fail=1
+          done
+          body=$(curl -s --max-time 10 https://www.websitesoft.co.uk/ || true)
+          echo "$body" | grep -q 'ws-routing' || { echo "home page content missing"; fail=1; }
+          exit $fail

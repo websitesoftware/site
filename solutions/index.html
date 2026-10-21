@@ -3,16 +3,21 @@
 <head>
 <meta charset="utf-8">
 <base href="/">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; frame-src https://challenges.cloudflare.com; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="ws-routing" content="path">
+<meta name="ws-build-date" content="2026-10-21">
 <title>Solutions | WebsiteSoft</title>
 <meta name="description" content="The situations businesses bring to us most often, and how we solve them. Find yours and open the page.">
 <meta name="keywords" content="WebsiteSoft, custom website software, Sitecore, legacy Sitecore, SitecoreAI, Umbraco, .NET, C#, CMS migration, API integration, AI integration, AI QA">
 <meta name="author" content="WebsiteSoft">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050c26">
+<meta name="ws-api-base" content=""><!-- backend origin; empty = same origin (/api). Set http://localhost:8787 for wrangler dev -->
+<meta name="ws-turnstile-sitekey" content=""><!-- Cloudflare Turnstile site key (docs/runbooks/CLOUDFLARE.md step 5); empty = no bot check -->
+<meta name="ws-cf-analytics-token" content=""><!-- Cloudflare Web Analytics token (runbook step 7); empty = no analytics -->
+<meta name="ws-ga4-id" content=""><!-- Google Analytics 4 measurement ID (G-XXXX). Empty = no GA4 and no consent banner. Setting it requires the Cookies section of the Privacy Statement to be updated (see docs/ROADMAP.md Phase 3) -->
 <link rel="canonical" href="https://www.websitesoft.co.uk/solutions/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WebsiteSoft">
@@ -35,7 +40,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Sora:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/styles.css">
-<script type="application/ld+json" id="ldpage">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.websitesoft.co.uk/"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://www.websitesoft.co.uk/solutions/"}]},{"@type":"WebPage","url":"https://www.websitesoft.co.uk/solutions/","name":"Solutions | WebsiteSoft","description":"The situations businesses bring to us most often, and how we solve them. Find yours and open the page.","isPartOf":{"@id":"https://www.websitesoft.co.uk/#site"},"about":{"@id":"https://www.websitesoft.co.uk/#org"},"inLanguage":"en-GB"}]}</script>
+<script type="application/ld+json" id="ldpage">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.websitesoft.co.uk/"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://www.websitesoft.co.uk/solutions/"}]},{"@type":"WebPage","url":"https://www.websitesoft.co.uk/solutions/","name":"Solutions | WebsiteSoft","description":"The situations businesses bring to us most often, and how we solve them. Find yours and open the page.","isPartOf":{"@id":"https://www.websitesoft.co.uk/#site"},"about":{"@id":"https://www.websitesoft.co.uk/#org"},"inLanguage":"en-GB","dateModified":"2026-10-21"}]}</script>
 </head>
 <body class="sub">
 <a class="skip" href="#home" id="skip">Skip to content</a>
@@ -202,6 +207,7 @@
         <details><summary>What does a CMS migration involve?</summary><p>Content mapped and restructured for the new platform, a front end rebuilt for it, redirects and SEO protected, and clear goals agreed first. We plan it as a project, not a file transfer.</p></details>
         <details><summary>Do you support sites after launch?</summary><p>Yes. We offer ongoing maintenance, security updates, monitoring and improvements, from the team that built or migrated the site.</p></details>
         <details><summary>Why do you write your own code?</summary><p>Fewer security risks, nothing breaks on someone else's update, and software you can own for years.</p></details>
+        <div class="ask home-ask" data-ask hidden><h3>Ask us anything about our services</h3><form class="askf"><label class="hp">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label><input name="q" maxlength="300" required placeholder="e.g. Can you move our Sitecore site to Umbraco?" autocomplete="off"><button class="btn pri" type="submit">Ask</button></form><div class="ask-out" aria-live="polite" hidden></div><small>Answers are generated from this website's own content. Check anything important with us.</small></div>
       </div>
     </div>
   </section>
@@ -232,7 +238,6 @@
   <button type="button" id="cPrev" aria-label="Previous chapter">↑</button>
   <button type="button" id="cNext" aria-label="Next chapter">↓</button>
 </nav>
-<script src="assets/vendor/three.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

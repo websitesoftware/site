@@ -1,0 +1,42 @@
+# Lighthouse CI against the live site: after every deploy (push to main of websitesoftware/site) and weekly.
+# Budgets are in lighthouserc.json. A failed run emails the repository owner. See docs/ROADMAP.md Phase 5.
+name: Lighthouse
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for GitHub Pages to publish this commit
+        if: github.event_name == 'push'
+        run: |
+          for i in $(seq 1 20); do
+            if curl -fsS https://www.websitesoft.co.uk/ | grep -q 'ws-routing'; then
+              mod=$(curl -sI https://www.websitesoft.co.uk/ | grep -i '^last-modified' || true)
+              echo "live: $mod"; sleep 20; exit 0
+            fi
+            sleep 15
+          done
+          echo "site did not answer"; exit 1
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://www.websitesoft.co.uk/
+            https://www.websitesoft.co.uk/services/umbraco/
+            https://www.websitesoft.co.uk/services/umbraco/umbraco-upgrades/
+            https://www.websitesoft.co.uk/contact/
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 2

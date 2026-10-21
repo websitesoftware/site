@@ -68,7 +68,7 @@ Any other static host also works (Netlify, Cloudflare Pages, Azure Static Web Ap
 
 ## Contact forms
 
-The Let's talk page (`#/contact`) and every enquiry page (`#/enquire/...`) submit directly to **enquiries@websitesoft.co.uk** through [FormSubmit](https://formsubmit.co) (free, no server needed). The subject is filled in automatically from the page the visitor came from.
+The Let's talk page (`/contact/`) and every enquiry page (`/enquire/...`) send to **enquiries@websitesoft.co.uk**. When the Cloudflare Worker in `workers/enquiry` is deployed (it answers `/api/health`), forms post to `/api/enquiry`, which runs a Cloudflare Turnstile check in managed mode (a challenge only for suspicious traffic), filters automated junk and relays through [FormSubmit](https://formsubmit.co). Without the Worker, forms post to FormSubmit directly (free, no server needed). The subject is filled in automatically from the page the visitor came from.
 
 One-time setup:
 
