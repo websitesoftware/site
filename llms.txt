@@ -1,0 +1,59 @@
+# WebsiteSoft
+
+> WebsiteSoft is a web and software development company, working since 2007. We build, upgrade and migrate Umbraco, Sitecore (including SitecoreAI) and Optimizely websites, develop custom .NET software and integrations, and add practical AI to existing systems. Contact: enquiries@websitesoft.co.uk.
+
+Key facts:
+- Founded: 2007
+- Platforms: Umbraco, Sitecore, SitecoreAI, Optimizely CMS, .NET
+- Services: CMS development and migration, upgrades and support, custom .NET applications, APIs and integration, legacy modernisation, AI integration, AI search, document automation, AI website QA testing
+- Every change is peer-reviewed before release; we write our own code with few dependencies
+- Email: enquiries@websitesoft.co.uk
+
+## Main pages
+- [WebsiteSoft | Web & software development since 2007](https://www.websitesoft.co.uk/): WebsiteSoft builds custom website software, Sitecore and SitecoreAI, Umbraco CMS, .NET applications, API integrations and AI tools. Web and software development since 2007.
+- [Services](https://www.websitesoft.co.uk/services/): Umbraco, Sitecore and Optimizely development and migration, custom .NET software and practical AI.
+- [Solutions](https://www.websitesoft.co.uk/solutions/): The situations businesses bring to us most often, and how we solve them. Find yours and open the page.
+- [About](https://www.websitesoft.co.uk/about/): We design, build and connect business software, with no shortcuts: software built to last, on Sitecore, Umbraco and .NET, with AI where it helps.
+- [Contact](https://www.websitesoft.co.uk/contact/): Tell us what you use today and what you want to improve. An engineer will read it and reply.
+
+## AI Integration & AI-Powered Solutions
+- [AI Integration & AI-Powered Solutions](https://www.websitesoft.co.uk/services/ai/): We add AI to the applications and websites you already run, securely and with people in control.
+- [AI integration and smart assistants](https://www.websitesoft.co.uk/services/ai/ai-integration/): Add AI to your existing website, CMS or application, including assistants that answer from your own approved content.
+- [AI-powered search](https://www.websitesoft.co.uk/services/ai/ai-search/): Search that understands meaning and intent across your website, documents and knowledge base.
+- [Document processing and workflow automation](https://www.websitesoft.co.uk/services/ai/document-automation/): Read, extract and route information from documents automatically, and automate repetitive process steps.
+
+## Custom Software Development
+- [Custom Software Development](https://www.websitesoft.co.uk/services/custom-software/): When off-the-shelf tools do not fit, we build .NET applications, web apps, APIs and integrations around how your business works.
+- [APIs and enterprise integration](https://www.websitesoft.co.uk/services/custom-software/api-integrations/): Secure APIs and integrations that connect your CRM, ERP, finance and other systems, so data is entered once.
+- [.NET and web applications](https://www.websitesoft.co.uk/services/custom-software/dotnet-applications/): Business applications, portals and internal tools in C# and modern .NET, replacing spreadsheets and manual steps.
+- [Legacy system modernisation](https://www.websitesoft.co.uk/services/custom-software/legacy-modernisation/): Modernise old applications in stages, moving to modern .NET and the cloud without stopping the business.
+
+## Optimizely Development
+- [Optimizely Development](https://www.websitesoft.co.uk/services/optimizely/): We build, customise, integrate and upgrade websites on Optimizely CMS (formerly Episerver), including upgrades to CMS 13.
+- [Optimizely development and implementation](https://www.websitesoft.co.uk/services/optimizely/optimizely-development/): New Optimizely sites and custom features, set up around how your editors work, with roles and approvals.
+- [Optimizely integrations](https://www.websitesoft.co.uk/services/optimizely/optimizely-integrations/): Connect Optimizely to your CRM, ERP, PIM, marketing and analytics systems through secure APIs.
+- [Optimizely upgrades and migration](https://www.websitesoft.co.uk/services/optimizely/optimizely-migration/): Upgrade Episerver CMS 11 or Optimizely CMS 12 to CMS 13 on .NET 10, including the move to Optimizely Graph.
+
+## Sitecore Development & Migration
+- [Sitecore Development & Migration](https://www.websitesoft.co.uk/services/sitecore/): We support and upgrade Sitecore XP and XM, build and integrate features, and move businesses to SitecoreAI when the time is right.
+- [Sitecore development and integrations](https://www.websitesoft.co.uk/services/sitecore/sitecore-development/): Components, templates and workflows built properly, plus integrations with your CRM, DAM and business systems.
+- [Sitecore upgrades and support](https://www.websitesoft.co.uk/services/sitecore/sitecore-upgrades/): Upgrade older Sitecore versions safely, or keep legacy versions stable and secure while you plan the next step.
+- [SitecoreAI migration](https://www.websitesoft.co.uk/services/sitecore/sitecoreai-migration/): Move from Sitecore XP or XM to SitecoreAI (formerly XM Cloud), Sitecore's SaaS platform, in planned phases.
+
+## Umbraco Development & Migration
+- [Umbraco Development & Migration](https://www.websitesoft.co.uk/services/umbraco/): We build, upgrade and support Umbraco sites, and move businesses onto Umbraco from Sitecore, WordPress and other platforms.
+- [WordPress and other CMS to Umbraco](https://www.websitesoft.co.uk/services/umbraco/cms-to-umbraco-migration/): Move from WordPress, Drupal, Kentico Xperience or a bespoke CMS to a structured, secure Umbraco site.
+- [Sitecore to Umbraco migration](https://www.websitesoft.co.uk/services/umbraco/sitecore-to-umbraco-migration/): Move from Sitecore to Umbraco to cut licence costs and complexity, keeping content, integrations and rankings.
+- [Umbraco development and integrations](https://www.websitesoft.co.uk/services/umbraco/umbraco-development/): New Umbraco sites, custom features and connections to your CRM, ERP and business systems.
+- [Umbraco maintenance and support](https://www.websitesoft.co.uk/services/umbraco/umbraco-support/): Keep your Umbraco site secure, up to date and improving, with a team that knows your code.
+- [Umbraco upgrades](https://www.websitesoft.co.uk/services/umbraco/umbraco-upgrades/): Move from Umbraco 7, 8 or 13 (end of life December 2026) to Umbraco 17 LTS on .NET 10.
+
+## Solutions
+- [Websites & CMS](https://www.websitesoft.co.uk/cms/): "Can you just change the text on that page?" should not take a week. We structure Sitecore, SitecoreAI and Umbraco so content sits apart from layout, and edit
+- [AI integration](https://www.websitesoft.co.uk/ai/): Your Umbraco or Sitecore site does not need replacing to benefit from AI. A secure .NET layer connects it to AI services, so content, search and editing get s
+- [Integrations & .NET](https://www.websitesoft.co.uk/integrations/): Behind every website sits a CRM, ERP, stock and marketing tools. Update once in your CMS and every system follows, with no retyping and no mismatched data.
+- [AI QA tool](https://www.websitesoft.co.uk/ai-qa/): A site can look perfect and still have broken links, console errors or accessibility issues. We are building an AI QA tool that crawls a site, runs the checks
+
+## Optional
+- [Privacy Statement](https://www.websitesoft.co.uk/privacy/): WebsiteSoft ("WebsiteSoft", "we", "us" or "our") respects your privacy. This statement explains what personal information we collect through this website, how
+- [Terms of Use](https://www.websitesoft.co.uk/terms/): These terms apply to your use of the WebsiteSoft website. Please read them carefully.
