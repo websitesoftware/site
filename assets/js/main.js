@@ -145,8 +145,10 @@
   // Turnstile in managed mode: invisible for most visitors, a challenge only when Cloudflare is unsure. Loaded only when a form is shown and a site key exists.
   let tsLoad = null;
   const turnstileReady = () => { if (!TS_KEY) return Promise.resolve(false); if (!tsLoad) tsLoad = new Promise((res) => { const sc = document.createElement('script'); sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true; sc.onload = () => res(!!window.turnstile); sc.onerror = () => res(false); document.head.appendChild(sc); }); return tsLoad; };
-  const mountTurnstile = async (form) => { form.dataset.t0 = Date.now(); if (!(await turnstileReady())) return; const box = form.querySelector('.ts'); if (!box || box.dataset.id) return; box.dataset.id = turnstile.render(box, { sitekey: TS_KEY, appearance: 'interaction-only', action: 'enquiry' }); };
+  const mountTurnstile = async (form) => { form.dataset.t0 = Date.now(); if (!(await turnstileReady())) return; const box = form.querySelector('.ts'); if (!box || box.dataset.id) return; box.dataset.id = turnstile.render(box, { sitekey: TS_KEY, appearance: 'interaction-only', action: 'enquiry', 'expired-callback': () => turnstile.reset(box.dataset.id), 'error-callback': () => {} }); };
   const tsToken = (form) => { const box = form.querySelector('.ts'); return box && box.dataset.id && window.turnstile ? turnstile.getResponse(box.dataset.id) || '' : ''; };
+  // Managed mode usually finishes silently within a second or two; when Cloudflare wants a click, the widget is visible and we wait for it.
+  const tsWait = (form, ms) => new Promise((res) => { const t0 = Date.now(); const tick = () => { const t = tsToken(form); if (t || Date.now() - t0 > ms) return res(t); setTimeout(tick, 250); }; tick(); });
   const tsReset = (form) => { const box = form.querySelector('.ts'); if (box && box.dataset.id && window.turnstile) turnstile.reset(box.dataset.id); };
   // Sends the form to the enquiries inbox through FormSubmit (https://formsubmit.co). The first ever submission
   // triggers a one-time activation email to the inbox; after that every enquiry arrives as an email.
@@ -179,7 +181,10 @@
       const api = await apiReady;
       if (api) {
         // The Worker verifies the Turnstile token, drops automated junk and relays to the inbox.
-        const meta = { _subject: subject, _t: Date.now() - (+form.dataset.t0 || Date.now()), _honey: form.querySelector('[name=_honey]').value, _turnstile: tsToken(form) };
+        let tok = tsToken(form);
+        if (TS_KEY && window.turnstile && !tok) { btn.innerHTML = 'Checking…'; tok = await tsWait(form, 12000); }
+        if (TS_KEY && window.turnstile && !tok) { reset(); const box = form.querySelector('.ts'); if (box) box.scrollIntoView({ block: 'center', behavior: 'smooth' }); show('err', '<b>Please complete the security check</b> shown above the button, then press Submit again.'); return; }
+        const meta = { _subject: subject, _t: Date.now() - (+form.dataset.t0 || Date.now()), _honey: form.querySelector('[name=_honey]').value, _turnstile: tok };
         const r = await fetch(API + '/enquiry', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(Object.assign(meta, fields)) });
         const j = await r.json().catch(() => ({}));
         if (r.ok && j.ok) { done(); return; }
